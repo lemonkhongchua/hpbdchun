@@ -34,9 +34,11 @@
 
     #wish-screen { position: absolute; inset: 0; display: none; flex-direction: column; justify-content: center; align-items: center; z-index: 40; text-align: center; opacity: 0; transition: opacity 0.8s ease-in-out; }
     .wish-title { font-family: 'Quicksand', sans-serif; font-size: clamp(22px, 5vw, 32px); font-weight: 700; color: #ffffff; margin-bottom: 70px; text-shadow: 0 0 15px rgba(255, 105, 180, 0.8); animation: gentleBreeze 3s infinite alternate; line-height: 1.5; }
+    
+ 
     .wish-cake-container { position: relative; width: 300px; height: 260px; perspective: 1200px; transform-style: preserve-3d; margin-bottom: 50px; }
     .wish-cake-3d { position: absolute; top: 50%; left: 50%; transform-style: preserve-3d; transform: translate(-50%, -50%) rotateX(-10deg); animation: floatWish 4s ease-in-out infinite; }
-    @keyframes floatWish { 0%, 100% { transform: translate(-50%, -50%) rotateX(-10deg) translateY(0); filter: drop-shadow(0 0 20px rgba(255, 77, 109, 0.4));} 50% { transform: translate(-50%, -50%) rotateX(-10deg) translateY(-15px); filter: drop-shadow(0 0 40px rgba(255, 77, 109, 0.8));} }
+    @keyframes floatWish { 0%, 100% { transform: translate(-50%, -50%) rotateX(-10deg) translateY(0); filter: drop-shadow(0 0 20px rgba(253, 224, 71, 0.4));} 50% { transform: translate(-50%, -50%) rotateX(-10deg) translateY(-15px); filter: drop-shadow(0 0 40px rgba(249, 168, 212, 0.8));} }
 
     .btn-blow { background: linear-gradient(135deg, #ff4d6d, #c026d3); border: 2px solid #ff9ebb; color: #fff; padding: 15px 40px; border-radius: 40px; font-size: 19px; font-weight: 700; cursor: pointer; box-shadow: 0 8px 25px rgba(255, 77, 109, 0.6); transition: all 0.3s; font-family: 'Quicksand', sans-serif; z-index: 10; }
     .btn-blow:hover { transform: scale(1.08) translateY(-4px); box-shadow: 0 12px 35px rgba(255, 77, 109, 0.8); }
@@ -49,21 +51,29 @@
 
     #carousel-scene { position: absolute; inset: 0; display: none; opacity: 0; transition: opacity 1.2s ease-in-out; z-index: 20; touch-action: none; overflow: hidden; }
     .perspective-wrapper { position: absolute; inset: 0; perspective: 1200px; display: flex; align-items: center; justify-content: center; }
-    #carousel-world { position: relative; width: 0; height: 0; transform-style: preserve-3d; transform: translateZ(-1150px) rotateX(-7deg); cursor: grab; }
+    #carousel-world { position: relative; width: 0; height: 0; transform-style: preserve-3d; transform: translateZ(-900px) rotateX(-5deg); cursor: grab; }
     
-    .plate-3d { position: absolute; width: 250px; height: 250px; border-radius: 50%; background: radial-gradient(circle, #fbcfe8 0%, #ff758f 60%, #9d4edd 100%); transform: translate(-50%, -50%) translateY(95px) rotateX(90deg); box-shadow: 0 0 45px rgba(255, 105, 180, 0.8), inset 0 0 20px #fff; }
-    .tier-bottom-top, .tier-bottom-base { position: absolute; width: 190px; height: 190px; border-radius: 50%; background: radial-gradient(circle, #f43f5e 30%, #be123c 100%); border: 3px solid #ffe4e6; }
+
+    .plate-3d { position: absolute; width: 250px; height: 250px; border-radius: 50%; background: radial-gradient(circle, #fff 0%, #cbd5e1 100%); transform: translate(-50%, -50%) translateY(95px) rotateX(90deg); box-shadow: 0 0 30px rgba(255, 255, 255, 0.5), inset 0 0 20px #94a3b8; border: 2px solid #f8fafc; }
+    
+    .tier-bottom-top, .tier-bottom-base { position: absolute; width: 190px; height: 190px; border-radius: 50%; background: radial-gradient(circle, #fef08a 30%, #eab308 100%); border: 3px solid #fef9c3; }
     .tier-bottom-top { transform: translate(-50%, -50%) translateY(25px) rotateX(90deg); }
     .tier-bottom-base { transform: translate(-50%, -50%) translateY(90px) rotateX(90deg); }
-    .side-panel-b { position: absolute; width: 52px; height: 65px; border-top: 4px solid #fff; transform-origin: center; background: linear-gradient(to bottom, #fda4af 0%, #e11d48 40%, #881337 100%); }
-    .tier-top-top, .tier-top-base { position: absolute; width: 130px; height: 130px; border-radius: 50%; background: radial-gradient(circle, #f472b6 25%, #c026d3 100%); border: 3px solid #fff0f3; }
+    .side-panel-b { position: absolute; width: 52px; height: 65px; border-top: 5px solid #fbcfe8; transform-origin: center; background: linear-gradient(to bottom, #fde047 0%, #facc15 60%, #ca8a04 100%); }
+    
+    .tier-top-top, .tier-top-base { position: absolute; width: 130px; height: 130px; border-radius: 50%; background: radial-gradient(circle, #fbcfe8 25%, #f472b6 100%); border: 3px solid #fdf2f8; }
     .tier-top-top { transform: translate(-50%, -50%) translateY(-35px) rotateX(90deg); }
     .tier-top-base { transform: translate(-50%, -50%) translateY(20px) rotateX(90deg); }
-    .side-panel-t { position: absolute; width: 36px; height: 55px; border-top: 3.5px solid #ffe4e6; transform-origin: center; background: linear-gradient(to bottom, #fff0f3 0%, #ec4899 35%, #701a75 100%); }
-    .candle-3d { position: absolute; width: 14px; height: 52px; border-radius: 6px; background: repeating-linear-gradient(45deg, #fff, #fff 6px, #f43f5e 6px, #f43f5e 12px); transform: translate(-50%, -50%) translateY(-65px); box-shadow: 0 0 15px rgba(255, 255, 255, 0.8); }
+    .side-panel-t { position: absolute; width: 36px; height: 55px; border-top: 3px solid #fdf2f8; transform-origin: center; background: linear-gradient(to bottom, #fce7f3 0%, #f9a8d4 50%, #be185d 100%); }
+    
+ 
+    .cherry-3d { position: absolute; width: 22px; height: 22px; border-radius: 50%; background: radial-gradient(circle at 30% 30%, #fca5a5, #e11d48, #881337); box-shadow: 2px 2px 5px rgba(0,0,0,0.5); }
+ 
+    .candle-3d { position: absolute; width: 14px; height: 52px; border-radius: 6px; background: repeating-linear-gradient(45deg, #fff, #fff 6px, #38bdf8 6px, #38bdf8 12px); transform: translate(-50%, -50%) translateY(-65px); box-shadow: 0 0 15px rgba(255, 255, 255, 0.8); }
     .candle-light { position: absolute; width: 40px; height: 40px; background: #ffb703; border-radius: 50%; transform: translate(-50%, -50%) translateY(-98px); filter: blur(15px); opacity: 0.6; pointer-events: none; }
     .flame-3d { position: absolute; width: 18px; height: 28px; background: radial-gradient(ellipse at bottom, #fff 0%, #ffd166 40%, #ff4d6d 80%, transparent 100%); border-radius: 50% 50% 35% 35% / 70% 70% 30% 30%; transform: translate(-50%, -50%) translateY(-98px); animation: flameMotion 0.8s infinite alternate ease-in-out; filter: drop-shadow(0 0 16px #ffbe0b) drop-shadow(0 0 35px #ff0055); }
     @keyframes flameMotion { 0% { transform: translate(-50%, -50%) translateY(-98px) scale(0.92) rotate(-3deg); } 100% { transform: translate(-50%, -50%) translateY(-100px) scale(1.12) rotate(3deg); } }
+    
     .cake-3d-center { position: absolute; width: 0; height: 0; transform-style: preserve-3d; pointer-events: none; animation: spinCake 20s linear infinite; }
     @keyframes spinCake { from { transform: rotateY(0deg); } to { transform: rotateY(360deg); } }
 
@@ -76,7 +86,6 @@
       cursor: pointer;
     }
 
-    /* ĐÃ TRẢ LẠI THẺ CHỮ TRẢI DÀI NẰM NGANG Y NHƯ ẢNH BẠN MUỐN (white-space: nowrap) */
     .wish-card { 
       font-weight: 700; 
       font-size: clamp(14px, 1.8vw, 17px); 
@@ -191,8 +200,8 @@
       "Cảm ơn vì lúc nào cũng nghe Chanh kể chuyện, than phiền nhee 🎁", "Một ngày sinh nhật thật ấm áp và hạnh phúc 🍰",
       "Cố gắng lên, Chanh lúc nào cũng tin Chun 🌟", "Làm gì cũng siêu mượt màaaa ☂️",
       "Sớm theo đuổi được đam mê của mình nhaa 🌠", "Happy Birthday Chun! 🎊",
-      "Chun bảo nếu phải chon, Chun thích màu tím và đỏ, Chanh cook ra cái màu này không biết ổn không nữa", "Tuổi mới nhiều may mắn, deadline pass nhẹ nhàng 🗓️",
-      "Chúc tình bạn chúng mình mãi keo sơn 🥂", "Nào làm quả dự án ma nè kkk ✈️", "Đố biết được Chun có đọc hết không đếyyy", "Không đọc hết xuống bạn cho ăn đúmmmmm, xớ!"
+      "Có buồn phiền gì cứ gọi Chanh nhé 📞", "Tuổi mới nhiều may mắn, deadline pass nhẹ nhàng 🗓️",
+      "Chúc tình bạn chúng mình mãi keo sơn 🥂", "Nào làm quả dự án ma nè kkk ✈️"
     ];
 
     let userPhotos = ["anh1.jpg", "anh2.jpg", "anh3.jpg"];
@@ -208,6 +217,7 @@
       const cake = document.createElement('div');
       cake.className = isSpinning ? 'cake-3d-center' : '';
       if (!isSpinning) cake.style.transformStyle = 'preserve-3d';
+      
       const plate = document.createElement('div'); plate.className = 'plate-3d'; cake.appendChild(plate);
       const bTop = document.createElement('div'); bTop.className = 'tier-bottom-top'; cake.appendChild(bTop);
       const bBase = document.createElement('div'); bBase.className = 'tier-bottom-base'; cake.appendChild(bBase);
@@ -216,6 +226,7 @@
         p.style.transform = 'translate(-50%, -50%) translateY(57.5px) rotateY(' + ((i/12)*360) + 'deg) translateZ(95px)';
         cake.appendChild(p);
       }
+      
       const tTop = document.createElement('div'); tTop.className = 'tier-top-top'; cake.appendChild(tTop);
       const tBase = document.createElement('div'); tBase.className = 'tier-top-base'; cake.appendChild(tBase);
       for (let i = 0; i < 12; i++) {
@@ -223,6 +234,14 @@
         p.style.transform = 'translate(-50%, -50%) translateY(-7.5px) rotateY(' + ((i/12)*360) + 'deg) translateZ(65px)';
         cake.appendChild(p);
       }
+
+      for (let i = 0; i < 6; i++) {
+        const cherry = document.createElement('div'); 
+        cherry.className = 'cherry-3d';
+        cherry.style.transform = 'translate(-50%, -50%) translateY(-35px) rotateY(' + ((i/6)*360) + 'deg) translateZ(50px) rotateX(-15deg)';
+        cake.appendChild(cherry);
+      }
+
       const candle = document.createElement('div'); candle.className = 'candle-3d'; cake.appendChild(candle);
       const candleLight = document.createElement('div'); candleLight.className = 'candle-light'; cake.appendChild(candleLight);
       const flame = document.createElement('div'); flame.className = 'flame-3d'; cake.appendChild(flame);
@@ -263,7 +282,7 @@
     });
 
     let rotY = 0, autoRotate = true, isDragging = false, prevX = 0;
-    let currentZoom = -1150; 
+    let currentZoom = -900; 
     const minZoom = -2500, maxZoom = 250;
 
     function build3DCarousel() {
@@ -279,7 +298,6 @@
       const midTier = pool.slice(third, third * 2);
       const bottomTier = pool.slice(third * 2);
       
-      /* BÁN KÍNH ĐƯỢC MỞ RỘNG TRÁNH CHẠM VÀO BÁNH KEM */
       const radius = 950; 
 
       function createTier(items, yOffset) {
@@ -307,7 +325,7 @@
           }
 
           const angle = (i / total) * 360;
-          el.style.transform = 'rotateY(' + angle + 'deg) translateZ(' + radius + 'px) translateY(' + yOffset + 'px)';
+          el.style.transform = 'translate(-50%, -50%) translateY(' + yOffset + 'px) rotateY(' + angle + 'deg) translateZ(' + radius + 'px)';
           
           el.addEventListener('click', function(e) { 
             confetti({ particleCount: 25, origin: { x: e.clientX/window.innerWidth, y: e.clientY/window.innerHeight }, colors: ['#ff4d6d', '#ff9ebb'] });
@@ -316,7 +334,6 @@
         });
       }
 
-      /* KHOẢNG CÁCH CÁC TẦNG CHỮ (TRÊN, GIỮA, DƯỚI) RỘNG RÃI */
       createTier(topTier, -250);
       createTier(midTier, 0);
       createTier(bottomTier, 250);
