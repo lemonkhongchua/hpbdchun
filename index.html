@@ -285,7 +285,7 @@
     });
 
     let rotY = 0, autoRotate = true, isDragging = false, prevX = 0;
-    let currentZoom = -900; 
+    let currentZoom = -1100; 
     const minZoom = -2500, maxZoom = 250;
 
     function build3DCarousel() {
@@ -301,7 +301,7 @@
       const midTier = pool.slice(third, third * 2);
       const bottomTier = pool.slice(third * 2);
       
-      const radius = 950; 
+      const radius = 1450; 
 
       function createTier(items, yOffset) {
         const total = items.length;
