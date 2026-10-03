@@ -343,7 +343,7 @@
     }
 
     function animateCarousel() {
-      if (autoRotate && !isDragging) rotY -= 0.06;
+      if (autoRotate && !isDragging) rotY -= 0.04;
       carouselWorld.style.transform = 'translateZ(' + currentZoom + 'px) rotateX(-7deg) rotateY(' + rotY + 'deg)';
       requestAnimationFrame(animateCarousel);
     }
