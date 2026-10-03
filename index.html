@@ -50,7 +50,7 @@
 
     #carousel-scene { position: absolute; inset: 0; display: none; opacity: 0; transition: opacity 1.2s ease-in-out; z-index: 20; touch-action: none; overflow: hidden; }
     .perspective-wrapper { position: absolute; inset: 0; perspective: 1200px; display: flex; align-items: center; justify-content: center; }
-    #carousel-world { position: relative; width: 0; height: 0; transform-style: preserve-3d; transform: translateZ(-1400px) rotateX(-5deg); cursor: grab; }
+    #carousel-world { position: relative; width: 0; height: 0; transform-style: preserve-3d; transform: translateZ(-1150px) rotateX(-5deg); cursor: grab; }
     
     .plate-3d { position: absolute; width: 250px; height: 250px; border-radius: 50%; background: radial-gradient(circle, #fff 0%, #cbd5e1 100%); transform: translate(-50%, -50%) translateY(95px) rotateX(90deg); box-shadow: 0 0 30px rgba(255, 255, 255, 0.5), inset 0 0 20px #94a3b8; border: 2px solid #f8fafc; }
     
@@ -161,7 +161,7 @@
   </div>
 
   <div id="carousel-scene">
-    <div class="zoom-hint">🖱️ Cuộn chuột / Vuốt 2 ngón tay để Phóng to - Thu nhỏ</div>
+    <div class="zoom-hint">🖱️️ Cuộn chuột / Vuốt 2 ngón tay để Phóng to - Thu nhỏ</div>
     <div class="perspective-wrapper">
       <div id="carousel-world"></div>
     </div>
@@ -282,8 +282,8 @@
     });
 
     let rotY = 0, autoRotate = true, isDragging = false, prevX = 0;
-    /* ĐÃ LÙI CAMERA RA XA HƠN (-1400) ĐỂ NHÌN TRỌN VÒNG TRÒN LỚN */
-    let currentZoom = -1400; 
+    /* THU GỌN ZOOM VỀ MỨC VỪA VẶN (-1150) */
+    let currentZoom = -1150; 
     const minZoom = -3000, maxZoom = 250;
 
     function build3DCarousel() {
@@ -299,8 +299,8 @@
       const midTier = pool.slice(third, third * 2);
       const bottomTier = pool.slice(third * 2);
       
-      /* ĐÃ MỞ RỘNG BÁN KÍNH LÊN 1450 ĐỂ CÁC THẺ CÁCH XA NHAU */
-      const radius = 1450; 
+      /* BÁN KÍNH VỪA ĐỦ ĐẸP (1150): KHÔNG ĐÈ NHAU MÀ KHÔNG BỊ XA QUÁ */
+      const radius = 1150; 
 
       function createTier(items, yOffset) {
         const total = items.length;
@@ -336,10 +336,10 @@
         });
       }
 
-      /* ĐÃ GIÃN KHOẢNG CÁCH 3 TẦNG RA (-320 VÀ 320) */
-      createTier(topTier, -320);
+      /* KHOẢNG CÁCH 3 TẦNG VỪA VẶN (-280 VÀ 280) */
+      createTier(topTier, -280);
       createTier(midTier, 0);
-      createTier(bottomTier, 320);
+      createTier(bottomTier, 280);
     }
 
     function animateCarousel() {
