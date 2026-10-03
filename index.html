@@ -35,7 +35,6 @@
     #wish-screen { position: absolute; inset: 0; display: none; flex-direction: column; justify-content: center; align-items: center; z-index: 40; text-align: center; opacity: 0; transition: opacity 0.8s ease-in-out; }
     .wish-title { font-family: 'Quicksand', sans-serif; font-size: clamp(22px, 5vw, 32px); font-weight: 700; color: #ffffff; margin-bottom: 70px; text-shadow: 0 0 15px rgba(255, 105, 180, 0.8); animation: gentleBreeze 3s infinite alternate; line-height: 1.5; }
     
- 
     .wish-cake-container { position: relative; width: 300px; height: 260px; perspective: 1200px; transform-style: preserve-3d; margin-bottom: 50px; }
     .wish-cake-3d { position: absolute; top: 50%; left: 50%; transform-style: preserve-3d; transform: translate(-50%, -50%) rotateX(-10deg); animation: floatWish 4s ease-in-out infinite; }
     @keyframes floatWish { 0%, 100% { transform: translate(-50%, -50%) rotateX(-10deg) translateY(0); filter: drop-shadow(0 0 20px rgba(253, 224, 71, 0.4));} 50% { transform: translate(-50%, -50%) rotateX(-10deg) translateY(-15px); filter: drop-shadow(0 0 40px rgba(249, 168, 212, 0.8));} }
@@ -51,9 +50,8 @@
 
     #carousel-scene { position: absolute; inset: 0; display: none; opacity: 0; transition: opacity 1.2s ease-in-out; z-index: 20; touch-action: none; overflow: hidden; }
     .perspective-wrapper { position: absolute; inset: 0; perspective: 1200px; display: flex; align-items: center; justify-content: center; }
-    #carousel-world { position: relative; width: 0; height: 0; transform-style: preserve-3d; transform: translateZ(-900px) rotateX(-5deg); cursor: grab; }
+    #carousel-world { position: relative; width: 0; height: 0; transform-style: preserve-3d; transform: translateZ(-1400px) rotateX(-5deg); cursor: grab; }
     
-
     .plate-3d { position: absolute; width: 250px; height: 250px; border-radius: 50%; background: radial-gradient(circle, #fff 0%, #cbd5e1 100%); transform: translate(-50%, -50%) translateY(95px) rotateX(90deg); box-shadow: 0 0 30px rgba(255, 255, 255, 0.5), inset 0 0 20px #94a3b8; border: 2px solid #f8fafc; }
     
     .tier-bottom-top, .tier-bottom-base { position: absolute; width: 190px; height: 190px; border-radius: 50%; background: radial-gradient(circle, #fef08a 30%, #eab308 100%); border: 3px solid #fef9c3; }
@@ -66,9 +64,8 @@
     .tier-top-base { transform: translate(-50%, -50%) translateY(20px) rotateX(90deg); }
     .side-panel-t { position: absolute; width: 36px; height: 55px; border-top: 3px solid #fdf2f8; transform-origin: center; background: linear-gradient(to bottom, #fce7f3 0%, #f9a8d4 50%, #be185d 100%); }
     
- 
     .cherry-3d { position: absolute; width: 22px; height: 22px; border-radius: 50%; background: radial-gradient(circle at 30% 30%, #fca5a5, #e11d48, #881337); box-shadow: 2px 2px 5px rgba(0,0,0,0.5); }
- 
+    
     .candle-3d { position: absolute; width: 14px; height: 52px; border-radius: 6px; background: repeating-linear-gradient(45deg, #fff, #fff 6px, #38bdf8 6px, #38bdf8 12px); transform: translate(-50%, -50%) translateY(-65px); box-shadow: 0 0 15px rgba(255, 255, 255, 0.8); }
     .candle-light { position: absolute; width: 40px; height: 40px; background: #ffb703; border-radius: 50%; transform: translate(-50%, -50%) translateY(-98px); filter: blur(15px); opacity: 0.6; pointer-events: none; }
     .flame-3d { position: absolute; width: 18px; height: 28px; background: radial-gradient(ellipse at bottom, #fff 0%, #ffd166 40%, #ff4d6d 80%, transparent 100%); border-radius: 50% 50% 35% 35% / 70% 70% 30% 30%; transform: translate(-50%, -50%) translateY(-98px); animation: flameMotion 0.8s infinite alternate ease-in-out; filter: drop-shadow(0 0 16px #ffbe0b) drop-shadow(0 0 35px #ff0055); }
@@ -285,8 +282,9 @@
     });
 
     let rotY = 0, autoRotate = true, isDragging = false, prevX = 0;
-    let currentZoom = -1100; 
-    const minZoom = -2500, maxZoom = 250;
+    /* ĐÃ LÙI CAMERA RA XA HƠN (-1400) ĐỂ NHÌN TRỌN VÒNG TRÒN LỚN */
+    let currentZoom = -1400; 
+    const minZoom = -3000, maxZoom = 250;
 
     function build3DCarousel() {
       carouselWorld.innerHTML = '';
@@ -301,7 +299,8 @@
       const midTier = pool.slice(third, third * 2);
       const bottomTier = pool.slice(third * 2);
       
-      const radius = 1600; 
+      /* ĐÃ MỞ RỘNG BÁN KÍNH LÊN 1450 ĐỂ CÁC THẺ CÁCH XA NHAU */
+      const radius = 1450; 
 
       function createTier(items, yOffset) {
         const total = items.length;
@@ -337,9 +336,10 @@
         });
       }
 
-      createTier(topTier, -250);
+      /* ĐÃ GIÃN KHOẢNG CÁCH 3 TẦNG RA (-320 VÀ 320) */
+      createTier(topTier, -320);
       createTier(midTier, 0);
-      createTier(bottomTier, 250);
+      createTier(bottomTier, 320);
     }
 
     function animateCarousel() {
