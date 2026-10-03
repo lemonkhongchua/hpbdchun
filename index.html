@@ -282,7 +282,6 @@
     });
 
     let rotY = 0, autoRotate = true, isDragging = false, prevX = 0;
-    /* THU GỌN ZOOM VỀ MỨC VỪA VẶN (-1150) */
     let currentZoom = -1150; 
     const minZoom = -3000, maxZoom = 250;
 
@@ -298,8 +297,7 @@
       const topTier = pool.slice(0, third);
       const midTier = pool.slice(third, third * 2);
       const bottomTier = pool.slice(third * 2);
-      
-      /* BÁN KÍNH VỪA ĐỦ ĐẸP (1150): KHÔNG ĐÈ NHAU MÀ KHÔNG BỊ XA QUÁ */
+    
       const radius = 1250; 
 
       function createTier(items, yOffset) {
@@ -336,7 +334,6 @@
         });
       }
 
-      /* KHOẢNG CÁCH 3 TẦNG VỪA VẶN (-280 VÀ 280) */
       createTier(topTier, -280);
       createTier(midTier, 0);
       createTier(bottomTier, 280);
